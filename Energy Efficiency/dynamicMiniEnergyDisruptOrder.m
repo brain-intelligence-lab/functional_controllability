@@ -44,7 +44,7 @@ function E = dynamicMiniEnergyDisruptOrder(A,B,delta_t,x0,xf,r_time)
         Wmr = Wm(:,:,r_order);
         dr = calcu_d(EAr,x0,xf);
         Wr = diagW(Wmr);
-        Sr = longS(EAr);
+        Sr = calcu_S(EAr);
         Weffr = Sr*Wr*Sr';
         E(ri+1) = 0.5*dr'*pinv(Weffr)*dr; % dynamic minimum control energy after shuffle
     end
