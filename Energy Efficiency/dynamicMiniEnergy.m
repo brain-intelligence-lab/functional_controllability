@@ -15,7 +15,7 @@ function E = dynamicMiniEnergy(A,B,delta_t,x0,xf)
 %               xf,     N-by-1 vector, which means the final state
 %
 %   Output:     E,      Constant, minimum dynamic control energy
-%   Reference: Li, A., Cornelius, S. P., et, al.  Science (2017) 358, 1042¨C1046
+%   Reference: Li, A., Cornelius, S. P., et, al.  Science (2017) 358, 1042Â¨C1046
 
     [row,col,num] = size(A);
     Wm = zeros(row,col,num);
@@ -30,7 +30,7 @@ function E = dynamicMiniEnergy(A,B,delta_t,x0,xf)
     end
     W = diagW(Wm);
     d = calcu_d(EA,x0,xf);
-    S = longS(EA);
+    S = calcu_S(EA);
     Weff = S*W*S';
     E = 0.5*d'*pinv(Weff)*d;
 end
